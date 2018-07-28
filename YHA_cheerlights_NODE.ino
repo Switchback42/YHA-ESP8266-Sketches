@@ -1,5 +1,5 @@
-//Use with authentic NeoPixels
-//Reminder:  You need to download a couple of libraries
+//Note to YHA Kids:  You will need to add a couple of libraries to your Arduino IDE
+
 /* NodeMCU & Neopixel Cheerlights by Marc de Vinck
   CheerLights originally created by Hans Scharler
 
@@ -12,33 +12,27 @@
   Project link -  https://blog.adafruit.com/2016/05/06/feather-huzzah-neopixel-cheerlighs/ ‎
 */
 
-#include <ESP8266WiFi.h> // Include the ESP8266 Library
-#include <ThingSpeak.h> // Include the ThingSpeak library
-#include <Adafruit_NeoPixel.h> // Include the adafruit Neopixel Library
+#include <ESP8266WiFi.h> // Include the ESP8266 library...we've already added this one.
+#include <ThingSpeak.h>  // Include the ThingSpeak library...we need to add this one.
+#include <Adafruit_NeoPixel.h> // Include the Adafruit Neopixel library...we need to add this one, too.
 
-#define PIN            D2 // What pin is the data being sent to the Neopixels.  D2 on NodeMCU
-#define NUMPIXELS      12 // How many Neopixels are you using?
+#define PIN            D2 // What pin is sending data to the Neopixels.  D2 on NodeMCU
+#define NUMPIXELS      1  // I've given you 1 Neopixel
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800); // Set up the Neopixels
 int delayval = 500; // delay for half a second
 
 WiFiClient  client;
 
-//const char* ssid     = "Wifi0DC7"
-//const char* password = "Wiskeydog"; // Enter your WiFi password
-const char* ssid     = "BurlingtonTelecomGuest"; // Enter your WiFi network name
-const char* password = NULL; 
+const char* ssid     = "    "; // Enter your WiFi network name
+const char* password = "    "; // Enter your WiFi password
 const char* host = "api.thingspeak.com";
 unsigned long cheerLightsChannelNumber = 1417; // The channel of Cheerlights
 
-
-void setup() {
-  //pinMode(LED_BUILTIN, OUTPUT);
-  //(LED_BUILTIN, LOW); //turns onboard LED on
-  
+void setup() {  
   pixels.begin(); // Start up Neopixels
 
-  Serial.begin(115200); // Get ready for serial communications and display the connetion status 
+  Serial.begin(115200); // (default 9600) Get ready for serial communications and display the connetion status 
   delay(100);
 
   Serial.println();
