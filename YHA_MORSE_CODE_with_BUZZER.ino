@@ -14,21 +14,23 @@ void setup() {
 // This is a function for a dot, which is 1 unit
 void dot() {
   digitalWrite(LED_BUILTIN, LOW);  // Turn the LED on by making the voltage LOW
-  digitalWrite(BUZZER_PIN, HIGH);  // Turn the buzzer ON by making the voltage HIGH
+  //tone(pin number, frequency in hertz, duration in milliseconds);
+  tone(BUZZER_PIN, 1330);          // Turn BUZZER_PIN on at a frequency of 1330 hertz
   delay(ONE_TIME_UNIT);            // Wait for 1 unit of time
 }
 
 // This is a function for a dash, which is 3 units
 void dash() {
   digitalWrite(LED_BUILTIN, LOW);  // Turn the LED on by making the voltage LOW
-  digitalWrite(BUZZER_PIN, HIGH);  // Turn the buzzer ON by making the voltage HIGH
+  //tone(pin number, frequency in hertz, duration in milliseconds);
+  tone(BUZZER_PIN, 1330); 
   delay(3*ONE_TIME_UNIT);          // Wait for 3 units of time  
 }
   
 // This is a function for a space
 void space(int ms) {
   digitalWrite(LED_BUILTIN, HIGH); // Turn the LED off by making the voltage HIGH
-  digitalWrite (BUZZER_PIN, LOW);  // Turn the buzzer OFF by making the voltage LOW
+  tone(BUZZER_PIN, 0);             // Turn BUZZER_PIN off
   delay(ms);                       // Delay for specified duration  
 }
 
