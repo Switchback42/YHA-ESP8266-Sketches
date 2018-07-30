@@ -1,4 +1,5 @@
 //YHA_MORSE_CODE_with_BUZZER
+//You may want to use the Tone() function, rather than digitalWrite(BUZZER_PIN, HIGH);
 
 int BUZZER_PIN = D6;                // one leg of buzzer to D6 and the other to ground
 int ONE_TIME_UNIT = 500;            // default 500 milliseconds for one time unit
